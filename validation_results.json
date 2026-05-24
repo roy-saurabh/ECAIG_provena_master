@@ -1,0 +1,2073 @@
+{
+  "metadata": {
+    "script": "provena_validation.py",
+    "generated_at_utc": "DETERMINISTIC-RUN",
+    "python_version": "3.13.7 (main, Aug 14 2025, 11:12:11) [Clang 17.0.0 (clang-1700.0.13.3)]",
+    "numpy_version": "2.4.6",
+    "seeds": {
+      "uniform_profiles": 99,
+      "context_correlated_profiles": 101,
+      "sensitivity": 7,
+      "invariant": 13,
+      "laundering_pathology": 29,
+      "study5": 43
+    },
+    "anonymized": true
+  },
+  "framework": {
+    "levels": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+    ],
+    "band_thresholds": {
+      "A": 85,
+      "B": 70,
+      "C": 50,
+      "D": 30,
+      "E": 0
+    },
+    "weights": {
+      "C_comp": 0.35,
+      "C_iq": 0.4,
+      "C_rep": 0.25
+    },
+    "input_modes": {
+      "Edge Local": "Edge Local",
+      "Federated": "Federated",
+      "Uploaded Sample": "Uploaded Sample",
+      "Workspace Asset": "Workspace Asset",
+      "External Provider": "External Provider",
+      "Declared Supplier Evidence": "Declared Supplier Evidence",
+      "Synthetic Fixture": "Synthetic Fixture",
+      "Not Assessable": "Not Assessable"
+    },
+    "ceilings": {
+      "Edge Local_v0": "A",
+      "Edge Local_v1": "A",
+      "Federated_v0": "B",
+      "Federated_v1": "A",
+      "Uploaded Sample_v0": "B",
+      "Uploaded Sample_v1": "B",
+      "Workspace Asset_v0": "C",
+      "Workspace Asset_v1": "B",
+      "External Provider_v0": "C",
+      "External Provider_v1": "B",
+      "Declared Supplier Evidence_v0": "D",
+      "Declared Supplier Evidence_v1": "D",
+      "Synthetic Fixture_v0": "C",
+      "Synthetic Fixture_v1": "C",
+      "Not Assessable_v0": "E",
+      "Not Assessable_v1": "E"
+    },
+    "input_quality_scores": {
+      "Edge Local_v0": 1.0,
+      "Edge Local_v1": 1.0,
+      "Federated_v0": 0.75,
+      "Federated_v1": 0.9,
+      "Uploaded Sample_v0": 0.7,
+      "Uploaded Sample_v1": 0.75,
+      "Workspace Asset_v0": 0.45,
+      "Workspace Asset_v1": 0.6,
+      "External Provider_v0": 0.4,
+      "External Provider_v1": 0.55,
+      "Declared Supplier Evidence_v0": 0.3,
+      "Declared Supplier Evidence_v1": 0.3,
+      "Synthetic Fixture_v0": 0.4,
+      "Synthetic Fixture_v1": 0.4,
+      "Not Assessable_v0": 0.0,
+      "Not Assessable_v1": 0.0
+    },
+    "families": {
+      "1": "Data quality",
+      "2": "Model performance",
+      "3": "Drift",
+      "4": "Reproducibility",
+      "5": "Fairness",
+      "6": "Explainability",
+      "7": "Privacy",
+      "8": "Lineage",
+      "9": "Robustness",
+      "10": "Security",
+      "11": "Agent boundary",
+      "12": "Policy decision",
+      "13": "Platform observability",
+      "14": "Export integrity",
+      "15": "RAG quality"
+    },
+    "contexts": {
+      "1": "General enterprise AI",
+      "2": "Financial services AI",
+      "3": "HR and workforce AI",
+      "4": "Health and wellbeing AI",
+      "5": "Agentic AI",
+      "6": "RAG and document AI",
+      "7": "Education and student-facing AI",
+      "8": "Public-sector AI",
+      "9": "Vendor and supplier AI",
+      "10": "Enterprise AI portfolio governance"
+    },
+    "necessity_matrix": {
+      "C1": {
+        "F1": 2,
+        "F2": 2,
+        "F3": 2,
+        "F4": 1,
+        "F5": 1,
+        "F6": 1,
+        "F7": 2,
+        "F8": 1,
+        "F9": 1,
+        "F10": 2,
+        "F11": 0,
+        "F12": 1,
+        "F13": 2,
+        "F14": 1,
+        "F15": 0
+      },
+      "C2": {
+        "F1": 2,
+        "F2": 2,
+        "F3": 2,
+        "F4": 2,
+        "F5": 2,
+        "F6": 2,
+        "F7": 2,
+        "F8": 2,
+        "F9": 2,
+        "F10": 2,
+        "F11": 0,
+        "F12": 2,
+        "F13": 2,
+        "F14": 2,
+        "F15": 0
+      },
+      "C3": {
+        "F1": 2,
+        "F2": 2,
+        "F3": 1,
+        "F4": 2,
+        "F5": 2,
+        "F6": 2,
+        "F7": 2,
+        "F8": 2,
+        "F9": 1,
+        "F10": 2,
+        "F11": 0,
+        "F12": 2,
+        "F13": 2,
+        "F14": 2,
+        "F15": 0
+      },
+      "C4": {
+        "F1": 2,
+        "F2": 2,
+        "F3": 2,
+        "F4": 2,
+        "F5": 2,
+        "F6": 2,
+        "F7": 2,
+        "F8": 2,
+        "F9": 2,
+        "F10": 2,
+        "F11": 1,
+        "F12": 2,
+        "F13": 2,
+        "F14": 2,
+        "F15": 1
+      },
+      "C5": {
+        "F1": 1,
+        "F2": 2,
+        "F3": 2,
+        "F4": 2,
+        "F5": 1,
+        "F6": 2,
+        "F7": 1,
+        "F8": 2,
+        "F9": 2,
+        "F10": 2,
+        "F11": 2,
+        "F12": 2,
+        "F13": 2,
+        "F14": 2,
+        "F15": 1
+      },
+      "C6": {
+        "F1": 2,
+        "F2": 2,
+        "F3": 1,
+        "F4": 1,
+        "F5": 1,
+        "F6": 2,
+        "F7": 1,
+        "F8": 2,
+        "F9": 1,
+        "F10": 2,
+        "F11": 0,
+        "F12": 1,
+        "F13": 2,
+        "F14": 1,
+        "F15": 2
+      },
+      "C7": {
+        "F1": 2,
+        "F2": 2,
+        "F3": 1,
+        "F4": 2,
+        "F5": 2,
+        "F6": 2,
+        "F7": 2,
+        "F8": 2,
+        "F9": 1,
+        "F10": 2,
+        "F11": 0,
+        "F12": 2,
+        "F13": 2,
+        "F14": 2,
+        "F15": 1
+      },
+      "C8": {
+        "F1": 2,
+        "F2": 2,
+        "F3": 2,
+        "F4": 2,
+        "F5": 2,
+        "F6": 2,
+        "F7": 2,
+        "F8": 2,
+        "F9": 2,
+        "F10": 2,
+        "F11": 1,
+        "F12": 2,
+        "F13": 2,
+        "F14": 2,
+        "F15": 1
+      },
+      "C9": {
+        "F1": 1,
+        "F2": 1,
+        "F3": 1,
+        "F4": 1,
+        "F5": 1,
+        "F6": 1,
+        "F7": 1,
+        "F8": 2,
+        "F9": 1,
+        "F10": 2,
+        "F11": 0,
+        "F12": 2,
+        "F13": 1,
+        "F14": 2,
+        "F15": 0
+      },
+      "C10": {
+        "F1": 1,
+        "F2": 1,
+        "F3": 1,
+        "F4": 2,
+        "F5": 1,
+        "F6": 1,
+        "F7": 1,
+        "F8": 2,
+        "F9": 1,
+        "F10": 2,
+        "F11": 0,
+        "F12": 2,
+        "F13": 2,
+        "F14": 2,
+        "F15": 0
+      }
+    }
+  },
+  "generators": {
+    "uniform": {
+      "n": 500,
+      "seed": 99,
+      "assumptions": {
+        "context_distribution": "Uniform(C1..C10)",
+        "mode_distribution": "Uniform over 7 assessable modes",
+        "verified": "Bernoulli(0.30)",
+        "q": "Uniform(0, 100)",
+        "reproducible": "Bernoulli(0.60)",
+        "coverage": "ceil(0.5 * n_required) to n_required required families",
+        "optional_families": "0 to 3 from non-required families"
+      }
+    },
+    "context_correlated": {
+      "n": 500,
+      "seed": 101,
+      "mode_probabilities_by_context": {
+        "C1": {
+          "Edge Local": 0.25,
+          "Uploaded Sample": 0.2,
+          "Workspace Asset": 0.25,
+          "External Provider": 0.15,
+          "Synthetic Fixture": 0.1,
+          "Declared Supplier Evidence": 0.05
+        },
+        "C2": {
+          "Edge Local": 0.35,
+          "Federated": 0.15,
+          "Uploaded Sample": 0.15,
+          "Workspace Asset": 0.1,
+          "External Provider": 0.1,
+          "Declared Supplier Evidence": 0.1,
+          "Synthetic Fixture": 0.05
+        },
+        "C3": {
+          "Edge Local": 0.25,
+          "Uploaded Sample": 0.25,
+          "Workspace Asset": 0.2,
+          "External Provider": 0.1,
+          "Declared Supplier Evidence": 0.1,
+          "Synthetic Fixture": 0.1
+        },
+        "C4": {
+          "Edge Local": 0.25,
+          "Federated": 0.25,
+          "Uploaded Sample": 0.1,
+          "Workspace Asset": 0.1,
+          "External Provider": 0.1,
+          "Declared Supplier Evidence": 0.1,
+          "Synthetic Fixture": 0.1
+        },
+        "C5": {
+          "Edge Local": 0.15,
+          "External Provider": 0.25,
+          "Workspace Asset": 0.2,
+          "Synthetic Fixture": 0.25,
+          "Declared Supplier Evidence": 0.1,
+          "Uploaded Sample": 0.05
+        },
+        "C6": {
+          "Edge Local": 0.2,
+          "Workspace Asset": 0.3,
+          "External Provider": 0.2,
+          "Uploaded Sample": 0.1,
+          "Synthetic Fixture": 0.15,
+          "Declared Supplier Evidence": 0.05
+        },
+        "C7": {
+          "Edge Local": 0.2,
+          "Uploaded Sample": 0.2,
+          "Workspace Asset": 0.2,
+          "Federated": 0.1,
+          "External Provider": 0.1,
+          "Declared Supplier Evidence": 0.1,
+          "Synthetic Fixture": 0.1
+        },
+        "C8": {
+          "Edge Local": 0.3,
+          "Federated": 0.1,
+          "Uploaded Sample": 0.1,
+          "Workspace Asset": 0.2,
+          "External Provider": 0.1,
+          "Declared Supplier Evidence": 0.1,
+          "Synthetic Fixture": 0.1
+        },
+        "C9": {
+          "Declared Supplier Evidence": 0.35,
+          "External Provider": 0.25,
+          "Workspace Asset": 0.15,
+          "Uploaded Sample": 0.1,
+          "Synthetic Fixture": 0.1,
+          "Edge Local": 0.05
+        },
+        "C10": {
+          "Workspace Asset": 0.25,
+          "External Provider": 0.2,
+          "Edge Local": 0.15,
+          "Declared Supplier Evidence": 0.15,
+          "Uploaded Sample": 0.1,
+          "Synthetic Fixture": 0.1,
+          "Federated": 0.05
+        }
+      },
+      "verification_probabilities": {
+        "Edge Local": 0.85,
+        "Federated": 0.7,
+        "Uploaded Sample": 0.35,
+        "Workspace Asset": 0.25,
+        "External Provider": 0.35,
+        "Declared Supplier Evidence": 0.15,
+        "Synthetic Fixture": 0.1
+      },
+      "reproducibility_probabilities": {
+        "Edge Local": 0.8,
+        "Federated": 0.7,
+        "Uploaded Sample": 0.5,
+        "Workspace Asset": 0.35,
+        "External Provider": 0.4,
+        "Declared Supplier Evidence": 0.2,
+        "Synthetic Fixture": 0.75
+      },
+      "score_distributions": {
+        "Edge Local": {
+          "mean": 75.0,
+          "std": 15.0,
+          "clip": [
+            0,
+            100
+          ]
+        },
+        "Federated": {
+          "mean": 72.0,
+          "std": 15.0,
+          "clip": [
+            0,
+            100
+          ]
+        },
+        "Uploaded Sample": {
+          "mean": 68.0,
+          "std": 18.0,
+          "clip": [
+            0,
+            100
+          ]
+        },
+        "Workspace Asset": {
+          "mean": 65.0,
+          "std": 20.0,
+          "clip": [
+            0,
+            100
+          ]
+        },
+        "External Provider": {
+          "mean": 70.0,
+          "std": 18.0,
+          "clip": [
+            0,
+            100
+          ]
+        },
+        "Declared Supplier Evidence": {
+          "mean": 82.0,
+          "std": 12.0,
+          "clip": [
+            0,
+            100
+          ]
+        },
+        "Synthetic Fixture": {
+          "mean": 88.0,
+          "std": 10.0,
+          "clip": [
+            0,
+            100
+          ]
+        }
+      },
+      "coverage_assumptions": {
+        "C1": {
+          "low": 0.5,
+          "high": 0.9
+        },
+        "C2": {
+          "low": 0.6,
+          "high": 0.95
+        },
+        "C3": {
+          "low": 0.6,
+          "high": 0.95
+        },
+        "C4": {
+          "low": 0.6,
+          "high": 0.95
+        },
+        "C5": {
+          "low": 0.5,
+          "high": 0.9
+        },
+        "C6": {
+          "low": 0.5,
+          "high": 0.9
+        },
+        "C7": {
+          "low": 0.6,
+          "high": 0.95
+        },
+        "C8": {
+          "low": 0.6,
+          "high": 0.95
+        },
+        "C9": {
+          "low": 0.5,
+          "high": 0.85
+        },
+        "C10": {
+          "low": 0.5,
+          "high": 0.9
+        }
+      }
+    }
+  },
+  "baselines": {
+    "full_framework": {
+      "description": "Missingness synthesis, input-mode ceilings, hard cap, composite score."
+    },
+    "metric_only": {
+      "description": "band(mean observed q); ignores provenance, context, missingness."
+    },
+    "soft_penalty_only": {
+      "description": "Full G with missingness synthesis; no hard cap. ClaimLevel = band(100*G)."
+    },
+    "completeness_only_checklist": {
+      "description": "ClaimLevel = band(100*C_comp); ignores provenance and q."
+    },
+    "composite_without_cap": {
+      "description": "Full G with missingness synthesis; no ceiling meet. Equivalent to soft_penalty_only."
+    },
+    "evidence_present": {
+      "description": "A if all required families have observed evidence; E otherwise."
+    },
+    "supplier_attestation": {
+      "description": "Coverage-and-q based; DSE verified=1 acceptable; no mode ceilings."
+    },
+    "assurance_case_style": {
+      "description": "Stylized: completeness * avg_q; no mode ceilings; E only if all absent."
+    },
+    "control_presence": {
+      "description": "Fraction of required families present mapped to level thresholds."
+    }
+  },
+  "studies": {
+    "uniform": {
+      "study_1_sensitivity_decomposition": {
+        "n_profiles": 500,
+        "baseline_weights": [
+          0.35,
+          0.4,
+          0.25
+        ],
+        "seed": 7,
+        "deltas": {
+          "0.05": {
+            "n_perturbations": 12,
+            "tau_mean": 0.9832135701760781,
+            "tau_min": 0.9712657048267652,
+            "rho_mean": 0.9994411691266832,
+            "rho_min": 0.9987848017684984,
+            "mean_abs_G_shift": 0.006709100884619967,
+            "max_abs_G_shift": 0.038710441708321275,
+            "pre_cap_band_change_rate": 0.035833333333333335,
+            "final_claim_level_change_rate": 0.0
+          },
+          "0.1": {
+            "n_perturbations": 12,
+            "tau_mean": 0.9653762443973452,
+            "tau_min": 0.9408595475482789,
+            "rho_mean": 0.9978431129300881,
+            "rho_min": 0.9951769831518459,
+            "mean_abs_G_shift": 0.01356214945533766,
+            "max_abs_G_shift": 0.0764873174510105,
+            "pre_cap_band_change_rate": 0.075,
+            "final_claim_level_change_rate": 0.0003333333333333333
+          },
+          "0.15": {
+            "n_perturbations": 12,
+            "tau_mean": 0.9467738771545947,
+            "tau_min": 0.9111630467292147,
+            "rho_mean": 0.9950903347919121,
+            "rho_min": 0.9892996888720256,
+            "mean_abs_G_shift": 0.02067356938857635,
+            "max_abs_G_shift": 0.11336399656774337,
+            "pre_cap_band_change_rate": 0.11333333333333334,
+            "final_claim_level_change_rate": 0.0003333333333333333
+          }
+        }
+      },
+      "study_2_invariant_testing": {
+        "n": 500,
+        "seed": 13,
+        "generator": "uniform",
+        "total_cases": 500,
+        "pass_count": 500,
+        "fail_count": 0,
+        "pass_rate": 1.0,
+        "synthetic_fixture_cases": 253,
+        "declared_supplier_cases": 247,
+        "final_level_distribution": {
+          "A": 0,
+          "B": 0,
+          "C": 26,
+          "D": 81,
+          "E": 393
+        },
+        "failing_profile_ids": [],
+        "invariant_satisfied": true
+      },
+      "study_3_laundering_pathology": {
+        "n": 300,
+        "seed": 29,
+        "generator": "uniform",
+        "construction": "all_required_families_q100_SF_or_DSE",
+        "variants": {
+          "full_framework": {
+            "level_distribution": {
+              "A": 0,
+              "B": 0,
+              "C": 4,
+              "D": 296,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 0.0,
+            "promoted_to_A_rate": 0.0,
+            "promoted_to_A_or_B_rate": 0.0,
+            "mean_overstatement_magnitude": 0.0,
+            "max_overstatement_magnitude": 0
+          },
+          "metric_only": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "soft_penalty_only": {
+            "level_distribution": {
+              "A": 0,
+              "B": 0,
+              "C": 24,
+              "D": 276,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 0.06666666666666667,
+            "promoted_to_A_rate": 0.0,
+            "promoted_to_A_or_B_rate": 0.0,
+            "mean_overstatement_magnitude": 1.0,
+            "max_overstatement_magnitude": 1
+          },
+          "completeness_only_checklist": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "composite_without_cap": {
+            "level_distribution": {
+              "A": 0,
+              "B": 0,
+              "C": 24,
+              "D": 276,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 0.06666666666666667,
+            "promoted_to_A_rate": 0.0,
+            "promoted_to_A_or_B_rate": 0.0,
+            "mean_overstatement_magnitude": 1.0,
+            "max_overstatement_magnitude": 1
+          },
+          "evidence_present": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "supplier_attestation": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "assurance_case_style": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "control_presence": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          }
+        }
+      },
+      "study_4_ablation": {
+        "n_profiles": 500,
+        "ablations": {
+          "no_context_matrix": {
+            "description": "Ignore necessity matrix; no missingness synthesis",
+            "level_distribution_ablated": {
+              "A": 0,
+              "B": 5,
+              "C": 146,
+              "D": 349,
+              "E": 0
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 34,
+              "D": 69,
+              "E": 397
+            },
+            "disagreement_rate": 0.806,
+            "promotions": 397,
+            "demotions": 6,
+            "unchanged": 97,
+            "promotion_to_A": 0,
+            "promotion_to_A_or_B": 5,
+            "mean_overstatement_magnitude": 1.3224181360201512,
+            "max_overstatement_magnitude": 3
+          },
+          "no_input_mode_ceiling": {
+            "description": "Set all non-NA ceilings to A; NA remains E",
+            "level_distribution_ablated": {
+              "A": 2,
+              "B": 81,
+              "C": 20,
+              "D": 0,
+              "E": 397
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 34,
+              "D": 69,
+              "E": 397
+            },
+            "disagreement_rate": 0.192,
+            "promotions": 96,
+            "demotions": 0,
+            "unchanged": 404,
+            "promotion_to_A": 2,
+            "promotion_to_A_or_B": 83,
+            "mean_overstatement_magnitude": 1.6041666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "no_reproducibility_term": {
+            "description": "Remove C_rep; renormalise weights",
+            "level_distribution_ablated": {
+              "A": 0,
+              "B": 0,
+              "C": 34,
+              "D": 69,
+              "E": 397
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 34,
+              "D": 69,
+              "E": 397
+            },
+            "disagreement_rate": 0.0,
+            "promotions": 0,
+            "demotions": 0,
+            "unchanged": 500,
+            "promotion_to_A": 0,
+            "promotion_to_A_or_B": 0,
+            "mean_overstatement_magnitude": 0.0,
+            "max_overstatement_magnitude": 0
+          },
+          "no_hard_cap_on_composite": {
+            "description": "No ceiling meet; ClaimLevel = band(100*G)",
+            "level_distribution_ablated": {
+              "A": 2,
+              "B": 98,
+              "C": 246,
+              "D": 153,
+              "E": 1
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 34,
+              "D": 69,
+              "E": 397
+            },
+            "disagreement_rate": 0.984,
+            "promotions": 492,
+            "demotions": 0,
+            "unchanged": 8,
+            "promotion_to_A": 2,
+            "promotion_to_A_or_B": 100,
+            "mean_overstatement_magnitude": 1.646341463414634,
+            "max_overstatement_magnitude": 3
+          },
+          "no_missingness_synthesis": {
+            "description": "Silently ignore missing required families",
+            "level_distribution_ablated": {
+              "A": 0,
+              "B": 2,
+              "C": 174,
+              "D": 324,
+              "E": 0
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 34,
+              "D": 69,
+              "E": 397
+            },
+            "disagreement_rate": 0.794,
+            "promotions": 397,
+            "demotions": 0,
+            "unchanged": 103,
+            "promotion_to_A": 0,
+            "promotion_to_A_or_B": 2,
+            "mean_overstatement_magnitude": 1.36272040302267,
+            "max_overstatement_magnitude": 3
+          }
+        }
+      },
+      "study_5_hardcap_vs_softpenalty": {
+        "n": 500,
+        "seed": 43,
+        "generator": "uniform",
+        "profile_statistics": {
+          "mean_q": 89.29587146160716,
+          "std_q": 7.301241751799785,
+          "min_q": 70.0,
+          "max_q": 100.0,
+          "strong_mode_fraction": 0.15055841924398625,
+          "mode_counts": {
+            "Edge Local": 352,
+            "Federated": 0,
+            "Uploaded Sample": 349,
+            "Workspace Asset": 1007,
+            "External Provider": 1017,
+            "Declared Supplier Evidence": 925,
+            "Synthetic Fixture": 1006
+          }
+        },
+        "variants": {
+          "full_framework": {
+            "level_distribution": {
+              "A": 0,
+              "B": 1,
+              "C": 83,
+              "D": 416,
+              "E": 0
+            },
+            "promotion_rate": 0.0,
+            "promoted_to_A_rate": 0.0,
+            "promoted_to_A_or_B_rate": 0.0,
+            "mean_overstatement_magnitude": 0.0,
+            "max_overstatement_magnitude": 0,
+            "agrees_with_full_framework": 500,
+            "over_promotes_vs_full": 0
+          },
+          "metric_only": {
+            "level_distribution": {
+              "A": 471,
+              "B": 29,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 0.942,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.772,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "soft_penalty_only": {
+            "level_distribution": {
+              "A": 2,
+              "B": 53,
+              "C": 441,
+              "D": 4,
+              "E": 0
+            },
+            "promotion_rate": 0.864,
+            "promoted_to_A_rate": 0.004,
+            "promoted_to_A_or_B_rate": 0.108,
+            "mean_overstatement_magnitude": 1.0833333333333333,
+            "max_overstatement_magnitude": 2,
+            "agrees_with_full_framework": 68,
+            "over_promotes_vs_full": 432
+          },
+          "completeness_only_checklist": {
+            "level_distribution": {
+              "A": 500,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.83,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "composite_without_cap": {
+            "level_distribution": {
+              "A": 2,
+              "B": 53,
+              "C": 441,
+              "D": 4,
+              "E": 0
+            },
+            "promotion_rate": 0.864,
+            "promoted_to_A_rate": 0.004,
+            "promoted_to_A_or_B_rate": 0.108,
+            "mean_overstatement_magnitude": 1.0833333333333333,
+            "max_overstatement_magnitude": 2,
+            "agrees_with_full_framework": 68,
+            "over_promotes_vs_full": 432
+          },
+          "evidence_present": {
+            "level_distribution": {
+              "A": 500,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.83,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "supplier_attestation": {
+            "level_distribution": {
+              "A": 471,
+              "B": 29,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 0.942,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.772,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "assurance_case_style": {
+            "level_distribution": {
+              "A": 471,
+              "B": 29,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 0.942,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.772,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "control_presence": {
+            "level_distribution": {
+              "A": 500,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.83,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          }
+        }
+      }
+    },
+    "context_correlated": {
+      "study_1_sensitivity_decomposition": {
+        "n_profiles": 500,
+        "baseline_weights": [
+          0.35,
+          0.4,
+          0.25
+        ],
+        "seed": 7,
+        "deltas": {
+          "0.05": {
+            "n_perturbations": 12,
+            "tau_mean": 0.978911089456164,
+            "tau_min": 0.9642861460326515,
+            "rho_mean": 0.9991227094727132,
+            "rho_min": 0.9980033096652348,
+            "mean_abs_G_shift": 0.007328004260195594,
+            "max_abs_G_shift": 0.042066512511032716,
+            "pre_cap_band_change_rate": 0.04750000000000001,
+            "final_claim_level_change_rate": 0.0
+          },
+          "0.1": {
+            "n_perturbations": 12,
+            "tau_mean": 0.9566829119212859,
+            "tau_min": 0.9296870013298977,
+            "rho_mean": 0.9965966103805658,
+            "rho_min": 0.9927069864265086,
+            "mean_abs_G_shift": 0.014800666384123522,
+            "max_abs_G_shift": 0.08311852188957608,
+            "pre_cap_band_change_rate": 0.08750000000000001,
+            "final_claim_level_change_rate": 0.0
+          },
+          "0.15": {
+            "n_perturbations": 12,
+            "tau_mean": 0.9339220955859181,
+            "tau_min": 0.8944743785713047,
+            "rho_mean": 0.9922751921264733,
+            "rho_min": 0.9839376772470265,
+            "mean_abs_G_shift": 0.022541217701099833,
+            "max_abs_G_shift": 0.12319229048973945,
+            "pre_cap_band_change_rate": 0.12583333333333335,
+            "final_claim_level_change_rate": 0.0
+          }
+        }
+      },
+      "study_2_invariant_testing": {
+        "n": 500,
+        "seed": 13,
+        "generator": "context_correlated",
+        "total_cases": 500,
+        "pass_count": 500,
+        "fail_count": 0,
+        "pass_rate": 1.0,
+        "synthetic_fixture_cases": 253,
+        "declared_supplier_cases": 247,
+        "final_level_distribution": {
+          "A": 0,
+          "B": 0,
+          "C": 17,
+          "D": 45,
+          "E": 438
+        },
+        "failing_profile_ids": [],
+        "invariant_satisfied": true
+      },
+      "study_3_laundering_pathology": {
+        "n": 300,
+        "seed": 29,
+        "generator": "context_correlated",
+        "construction": "all_required_families_q100_SF_or_DSE",
+        "variants": {
+          "full_framework": {
+            "level_distribution": {
+              "A": 0,
+              "B": 0,
+              "C": 4,
+              "D": 296,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 0.0,
+            "promoted_to_A_rate": 0.0,
+            "promoted_to_A_or_B_rate": 0.0,
+            "mean_overstatement_magnitude": 0.0,
+            "max_overstatement_magnitude": 0
+          },
+          "metric_only": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "soft_penalty_only": {
+            "level_distribution": {
+              "A": 0,
+              "B": 0,
+              "C": 24,
+              "D": 276,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 0.06666666666666667,
+            "promoted_to_A_rate": 0.0,
+            "promoted_to_A_or_B_rate": 0.0,
+            "mean_overstatement_magnitude": 1.0,
+            "max_overstatement_magnitude": 1
+          },
+          "completeness_only_checklist": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "composite_without_cap": {
+            "level_distribution": {
+              "A": 0,
+              "B": 0,
+              "C": 24,
+              "D": 276,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 0.06666666666666667,
+            "promoted_to_A_rate": 0.0,
+            "promoted_to_A_or_B_rate": 0.0,
+            "mean_overstatement_magnitude": 1.0,
+            "max_overstatement_magnitude": 1
+          },
+          "evidence_present": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "supplier_attestation": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "assurance_case_style": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          },
+          "control_presence": {
+            "level_distribution": {
+              "A": 300,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "provenance_inconsistent_promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 1.0,
+            "mean_overstatement_magnitude": 2.986666666666667,
+            "max_overstatement_magnitude": 3
+          }
+        }
+      },
+      "study_4_ablation": {
+        "n_profiles": 500,
+        "ablations": {
+          "no_context_matrix": {
+            "description": "Ignore necessity matrix; no missingness synthesis",
+            "level_distribution_ablated": {
+              "A": 0,
+              "B": 8,
+              "C": 177,
+              "D": 315,
+              "E": 0
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 15,
+              "D": 35,
+              "E": 450
+            },
+            "disagreement_rate": 0.9,
+            "promotions": 450,
+            "demotions": 0,
+            "unchanged": 50,
+            "promotion_to_A": 0,
+            "promotion_to_A_or_B": 8,
+            "mean_overstatement_magnitude": 1.3955555555555557,
+            "max_overstatement_magnitude": 3
+          },
+          "no_input_mode_ceiling": {
+            "description": "Set all non-NA ceilings to A; NA remains E",
+            "level_distribution_ablated": {
+              "A": 2,
+              "B": 29,
+              "C": 19,
+              "D": 0,
+              "E": 450
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 15,
+              "D": 35,
+              "E": 450
+            },
+            "disagreement_rate": 0.096,
+            "promotions": 48,
+            "demotions": 0,
+            "unchanged": 452,
+            "promotion_to_A": 2,
+            "promotion_to_A_or_B": 31,
+            "mean_overstatement_magnitude": 1.4166666666666667,
+            "max_overstatement_magnitude": 2
+          },
+          "no_reproducibility_term": {
+            "description": "Remove C_rep; renormalise weights",
+            "level_distribution_ablated": {
+              "A": 0,
+              "B": 0,
+              "C": 15,
+              "D": 35,
+              "E": 450
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 15,
+              "D": 35,
+              "E": 450
+            },
+            "disagreement_rate": 0.0,
+            "promotions": 0,
+            "demotions": 0,
+            "unchanged": 500,
+            "promotion_to_A": 0,
+            "promotion_to_A_or_B": 0,
+            "mean_overstatement_magnitude": 0.0,
+            "max_overstatement_magnitude": 0
+          },
+          "no_hard_cap_on_composite": {
+            "description": "No ceiling meet; ClaimLevel = band(100*G)",
+            "level_distribution_ablated": {
+              "A": 2,
+              "B": 74,
+              "C": 320,
+              "D": 104,
+              "E": 0
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 15,
+              "D": 35,
+              "E": 450
+            },
+            "disagreement_rate": 0.996,
+            "promotions": 498,
+            "demotions": 0,
+            "unchanged": 2,
+            "promotion_to_A": 2,
+            "promotion_to_A_or_B": 76,
+            "mean_overstatement_magnitude": 1.8253012048192772,
+            "max_overstatement_magnitude": 3
+          },
+          "no_missingness_synthesis": {
+            "description": "Silently ignore missing required families",
+            "level_distribution_ablated": {
+              "A": 0,
+              "B": 7,
+              "C": 193,
+              "D": 300,
+              "E": 0
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 15,
+              "D": 35,
+              "E": 450
+            },
+            "disagreement_rate": 0.9,
+            "promotions": 450,
+            "demotions": 0,
+            "unchanged": 50,
+            "promotion_to_A": 0,
+            "promotion_to_A_or_B": 7,
+            "mean_overstatement_magnitude": 1.4266666666666667,
+            "max_overstatement_magnitude": 3
+          }
+        }
+      },
+      "study_5_hardcap_vs_softpenalty": {
+        "n": 500,
+        "seed": 43,
+        "generator": "context_correlated",
+        "profile_statistics": {
+          "mean_q": 89.29587146160716,
+          "std_q": 7.301241751799785,
+          "min_q": 70.0,
+          "max_q": 100.0,
+          "strong_mode_fraction": 0.15055841924398625,
+          "mode_counts": {
+            "Edge Local": 352,
+            "Federated": 0,
+            "Uploaded Sample": 349,
+            "Workspace Asset": 1007,
+            "External Provider": 1017,
+            "Declared Supplier Evidence": 925,
+            "Synthetic Fixture": 1006
+          }
+        },
+        "variants": {
+          "full_framework": {
+            "level_distribution": {
+              "A": 0,
+              "B": 1,
+              "C": 83,
+              "D": 416,
+              "E": 0
+            },
+            "promotion_rate": 0.0,
+            "promoted_to_A_rate": 0.0,
+            "promoted_to_A_or_B_rate": 0.0,
+            "mean_overstatement_magnitude": 0.0,
+            "max_overstatement_magnitude": 0,
+            "agrees_with_full_framework": 500,
+            "over_promotes_vs_full": 0
+          },
+          "metric_only": {
+            "level_distribution": {
+              "A": 471,
+              "B": 29,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 0.942,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.772,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "soft_penalty_only": {
+            "level_distribution": {
+              "A": 2,
+              "B": 53,
+              "C": 441,
+              "D": 4,
+              "E": 0
+            },
+            "promotion_rate": 0.864,
+            "promoted_to_A_rate": 0.004,
+            "promoted_to_A_or_B_rate": 0.108,
+            "mean_overstatement_magnitude": 1.0833333333333333,
+            "max_overstatement_magnitude": 2,
+            "agrees_with_full_framework": 68,
+            "over_promotes_vs_full": 432
+          },
+          "completeness_only_checklist": {
+            "level_distribution": {
+              "A": 500,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.83,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "composite_without_cap": {
+            "level_distribution": {
+              "A": 2,
+              "B": 53,
+              "C": 441,
+              "D": 4,
+              "E": 0
+            },
+            "promotion_rate": 0.864,
+            "promoted_to_A_rate": 0.004,
+            "promoted_to_A_or_B_rate": 0.108,
+            "mean_overstatement_magnitude": 1.0833333333333333,
+            "max_overstatement_magnitude": 2,
+            "agrees_with_full_framework": 68,
+            "over_promotes_vs_full": 432
+          },
+          "evidence_present": {
+            "level_distribution": {
+              "A": 500,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.83,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "supplier_attestation": {
+            "level_distribution": {
+              "A": 471,
+              "B": 29,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 0.942,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.772,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "assurance_case_style": {
+            "level_distribution": {
+              "A": 471,
+              "B": 29,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 0.942,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.772,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          },
+          "control_presence": {
+            "level_distribution": {
+              "A": 500,
+              "B": 0,
+              "C": 0,
+              "D": 0,
+              "E": 0
+            },
+            "promotion_rate": 1.0,
+            "promoted_to_A_rate": 1.0,
+            "promoted_to_A_or_B_rate": 0.998,
+            "mean_overstatement_magnitude": 2.83,
+            "max_overstatement_magnitude": 3,
+            "agrees_with_full_framework": 0,
+            "over_promotes_vs_full": 500
+          }
+        }
+      }
+    }
+  },
+  "manuscript_tables": {
+    "recommended_table_sensitivity_decomposition": {
+      "uniform": [
+        {
+          "delta": 0.05,
+          "tau_mean": 0.9832135701760781,
+          "tau_min": 0.9712657048267652,
+          "rho_mean": 0.9994411691266832,
+          "rho_min": 0.9987848017684984,
+          "pre_cap_band_change_rate": 0.035833333333333335,
+          "final_claim_level_change_rate": 0.0
+        },
+        {
+          "delta": 0.1,
+          "tau_mean": 0.9653762443973452,
+          "tau_min": 0.9408595475482789,
+          "rho_mean": 0.9978431129300881,
+          "rho_min": 0.9951769831518459,
+          "pre_cap_band_change_rate": 0.075,
+          "final_claim_level_change_rate": 0.0003333333333333333
+        },
+        {
+          "delta": 0.15,
+          "tau_mean": 0.9467738771545947,
+          "tau_min": 0.9111630467292147,
+          "rho_mean": 0.9950903347919121,
+          "rho_min": 0.9892996888720256,
+          "pre_cap_band_change_rate": 0.11333333333333334,
+          "final_claim_level_change_rate": 0.0003333333333333333
+        }
+      ],
+      "context_correlated": [
+        {
+          "delta": 0.05,
+          "tau_mean": 0.978911089456164,
+          "tau_min": 0.9642861460326515,
+          "rho_mean": 0.9991227094727132,
+          "rho_min": 0.9980033096652348,
+          "pre_cap_band_change_rate": 0.04750000000000001,
+          "final_claim_level_change_rate": 0.0
+        },
+        {
+          "delta": 0.1,
+          "tau_mean": 0.9566829119212859,
+          "tau_min": 0.9296870013298977,
+          "rho_mean": 0.9965966103805658,
+          "rho_min": 0.9927069864265086,
+          "pre_cap_band_change_rate": 0.08750000000000001,
+          "final_claim_level_change_rate": 0.0
+        },
+        {
+          "delta": 0.15,
+          "tau_mean": 0.9339220955859181,
+          "tau_min": 0.8944743785713047,
+          "rho_mean": 0.9922751921264733,
+          "rho_min": 0.9839376772470265,
+          "pre_cap_band_change_rate": 0.12583333333333335,
+          "final_claim_level_change_rate": 0.0
+        }
+      ]
+    },
+    "recommended_table_invariant": {
+      "uniform": {
+        "pass_rate": 1.0,
+        "pass_count": 500,
+        "total": 500,
+        "synthetic_cases": 253,
+        "declared_cases": 247,
+        "level_distribution": {
+          "A": 0,
+          "B": 0,
+          "C": 26,
+          "D": 81,
+          "E": 393
+        }
+      },
+      "context_correlated": {
+        "pass_rate": 1.0,
+        "pass_count": 500,
+        "total": 500,
+        "synthetic_cases": 253,
+        "declared_cases": 247,
+        "level_distribution": {
+          "A": 0,
+          "B": 0,
+          "C": 17,
+          "D": 45,
+          "E": 438
+        }
+      }
+    },
+    "recommended_table_laundering_pathology": {
+      "uniform": [
+        {
+          "variant": "full_framework",
+          "A": 0,
+          "B": 0,
+          "C": 4,
+          "D": 296,
+          "E": 0,
+          "prov_inconsistent_rate": 0.0
+        },
+        {
+          "variant": "metric_only",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "soft_penalty_only",
+          "A": 0,
+          "B": 0,
+          "C": 24,
+          "D": 276,
+          "E": 0,
+          "prov_inconsistent_rate": 0.06666666666666667
+        },
+        {
+          "variant": "completeness_only_checklist",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "composite_without_cap",
+          "A": 0,
+          "B": 0,
+          "C": 24,
+          "D": 276,
+          "E": 0,
+          "prov_inconsistent_rate": 0.06666666666666667
+        },
+        {
+          "variant": "evidence_present",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "supplier_attestation",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "assurance_case_style",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "control_presence",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        }
+      ],
+      "context_correlated": [
+        {
+          "variant": "full_framework",
+          "A": 0,
+          "B": 0,
+          "C": 4,
+          "D": 296,
+          "E": 0,
+          "prov_inconsistent_rate": 0.0
+        },
+        {
+          "variant": "metric_only",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "soft_penalty_only",
+          "A": 0,
+          "B": 0,
+          "C": 24,
+          "D": 276,
+          "E": 0,
+          "prov_inconsistent_rate": 0.06666666666666667
+        },
+        {
+          "variant": "completeness_only_checklist",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "composite_without_cap",
+          "A": 0,
+          "B": 0,
+          "C": 24,
+          "D": 276,
+          "E": 0,
+          "prov_inconsistent_rate": 0.06666666666666667
+        },
+        {
+          "variant": "evidence_present",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "supplier_attestation",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "assurance_case_style",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        },
+        {
+          "variant": "control_presence",
+          "A": 300,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "prov_inconsistent_rate": 1.0
+        }
+      ]
+    },
+    "recommended_table_ablation": {
+      "uniform": [
+        {
+          "ablation": "no_context_matrix",
+          "disagreement_rate": 0.806,
+          "promotions": 397,
+          "demotions": 6,
+          "promotion_to_A": 0,
+          "mean_overstatement": 1.3224181360201512
+        },
+        {
+          "ablation": "no_input_mode_ceiling",
+          "disagreement_rate": 0.192,
+          "promotions": 96,
+          "demotions": 0,
+          "promotion_to_A": 2,
+          "mean_overstatement": 1.6041666666666667
+        },
+        {
+          "ablation": "no_reproducibility_term",
+          "disagreement_rate": 0.0,
+          "promotions": 0,
+          "demotions": 0,
+          "promotion_to_A": 0,
+          "mean_overstatement": 0.0
+        },
+        {
+          "ablation": "no_hard_cap_on_composite",
+          "disagreement_rate": 0.984,
+          "promotions": 492,
+          "demotions": 0,
+          "promotion_to_A": 2,
+          "mean_overstatement": 1.646341463414634
+        },
+        {
+          "ablation": "no_missingness_synthesis",
+          "disagreement_rate": 0.794,
+          "promotions": 397,
+          "demotions": 0,
+          "promotion_to_A": 0,
+          "mean_overstatement": 1.36272040302267
+        }
+      ],
+      "context_correlated": [
+        {
+          "ablation": "no_context_matrix",
+          "disagreement_rate": 0.9,
+          "promotions": 450,
+          "demotions": 0,
+          "promotion_to_A": 0,
+          "mean_overstatement": 1.3955555555555557
+        },
+        {
+          "ablation": "no_input_mode_ceiling",
+          "disagreement_rate": 0.096,
+          "promotions": 48,
+          "demotions": 0,
+          "promotion_to_A": 2,
+          "mean_overstatement": 1.4166666666666667
+        },
+        {
+          "ablation": "no_reproducibility_term",
+          "disagreement_rate": 0.0,
+          "promotions": 0,
+          "demotions": 0,
+          "promotion_to_A": 0,
+          "mean_overstatement": 0.0
+        },
+        {
+          "ablation": "no_hard_cap_on_composite",
+          "disagreement_rate": 0.996,
+          "promotions": 498,
+          "demotions": 0,
+          "promotion_to_A": 2,
+          "mean_overstatement": 1.8253012048192772
+        },
+        {
+          "ablation": "no_missingness_synthesis",
+          "disagreement_rate": 0.9,
+          "promotions": 450,
+          "demotions": 0,
+          "promotion_to_A": 0,
+          "mean_overstatement": 1.4266666666666667
+        }
+      ]
+    },
+    "recommended_table_study5": {
+      "uniform": [
+        {
+          "variant": "full_framework",
+          "A": 0,
+          "B": 1,
+          "C": 83,
+          "D": 416,
+          "E": 0,
+          "promotion_rate": 0.0,
+          "mean_overstatement": 0.0
+        },
+        {
+          "variant": "metric_only",
+          "A": 471,
+          "B": 29,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.772
+        },
+        {
+          "variant": "soft_penalty_only",
+          "A": 2,
+          "B": 53,
+          "C": 441,
+          "D": 4,
+          "E": 0,
+          "promotion_rate": 0.864,
+          "mean_overstatement": 1.0833333333333333
+        },
+        {
+          "variant": "completeness_only_checklist",
+          "A": 500,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.83
+        },
+        {
+          "variant": "composite_without_cap",
+          "A": 2,
+          "B": 53,
+          "C": 441,
+          "D": 4,
+          "E": 0,
+          "promotion_rate": 0.864,
+          "mean_overstatement": 1.0833333333333333
+        },
+        {
+          "variant": "evidence_present",
+          "A": 500,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.83
+        },
+        {
+          "variant": "supplier_attestation",
+          "A": 471,
+          "B": 29,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.772
+        },
+        {
+          "variant": "assurance_case_style",
+          "A": 471,
+          "B": 29,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.772
+        },
+        {
+          "variant": "control_presence",
+          "A": 500,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.83
+        }
+      ],
+      "context_correlated": [
+        {
+          "variant": "full_framework",
+          "A": 0,
+          "B": 1,
+          "C": 83,
+          "D": 416,
+          "E": 0,
+          "promotion_rate": 0.0,
+          "mean_overstatement": 0.0
+        },
+        {
+          "variant": "metric_only",
+          "A": 471,
+          "B": 29,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.772
+        },
+        {
+          "variant": "soft_penalty_only",
+          "A": 2,
+          "B": 53,
+          "C": 441,
+          "D": 4,
+          "E": 0,
+          "promotion_rate": 0.864,
+          "mean_overstatement": 1.0833333333333333
+        },
+        {
+          "variant": "completeness_only_checklist",
+          "A": 500,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.83
+        },
+        {
+          "variant": "composite_without_cap",
+          "A": 2,
+          "B": 53,
+          "C": 441,
+          "D": 4,
+          "E": 0,
+          "promotion_rate": 0.864,
+          "mean_overstatement": 1.0833333333333333
+        },
+        {
+          "variant": "evidence_present",
+          "A": 500,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.83
+        },
+        {
+          "variant": "supplier_attestation",
+          "A": 471,
+          "B": 29,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.772
+        },
+        {
+          "variant": "assurance_case_style",
+          "A": 471,
+          "B": 29,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.772
+        },
+        {
+          "variant": "control_presence",
+          "A": 500,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0,
+          "promotion_rate": 1.0,
+          "mean_overstatement": 2.83
+        }
+      ]
+    },
+    "recommended_table_generator_comparison": {
+      "note": "Compare uniform vs context_correlated results for each study. Directional agreement indicates framework robustness to profile-generation assumptions."
+    }
+  },
+  "notes": [
+    "Computational studies test internal soundness and implementation fidelity under synthetic audit profiles. They do not establish external practitioner validity.",
+    "soft_penalty_only and composite_without_cap use the same formula (full G with missingness synthesis, no ceiling meet). Identical results confirm they are equivalent formulations."
+  ]
+}
