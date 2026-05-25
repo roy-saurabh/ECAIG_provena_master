@@ -12,3 +12,5 @@ Complete list of files in this companion repository and their purpose.
 | `REPO_READINESS.md` | Auto-generated readiness declaration. Declares `READY_FOR_ANONYMOUS_REVIEW` or `NOT_READY_FOR_ANONYMOUS_REVIEW` based on a per-item checklist. |
 | `README.md` | Explains the repository, the framework, all five studies, all baselines, exact run commands, output interpretation, and limitations. |
 | `requirements.txt` | Python dependencies: `numpy`, `scipy`, `pytest`. |
+| `sample_audit.py` | End-to-end demonstrator. Reproduces the two worked examples from manuscript Section 11 (HR resume screening §11.1, supplier-led vendor AI §11.2), runs the full framework computation step by step, and writes `sample_audit_report.json`. Run: `python sample_audit.py`. |
+| `sample_audit_report.json` | Generated output from `sample_audit.py`. Structured JSON audit report for both worked examples, with per-finding detail, intermediate composite-score values, and verification that results match the manuscript. Must not be edited by hand. |

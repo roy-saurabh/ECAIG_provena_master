@@ -1,0 +1,322 @@
+{
+  "generated_by": "sample_audit.py",
+  "manuscript_sections": [
+    "11.1",
+    "11.2"
+  ],
+  "description": "End-to-end reproduction of the two worked examples in Section 11 of the companion manuscript.  Values match Tables 6–7 and the step-by-step computations in Sections 11.1–11.2.",
+  "reports": [
+    {
+      "profile_id": "worked_example_11_1_HR_C3",
+      "context": "C3",
+      "context_name": "HR and workforce AI",
+      "required_families": [
+        "F1",
+        "F2",
+        "F4",
+        "F5",
+        "F6",
+        "F7",
+        "F8",
+        "F10",
+        "F12",
+        "F13",
+        "F14"
+      ],
+      "observed_families": [
+        "F1",
+        "F2",
+        "F4",
+        "F5",
+        "F7",
+        "F8",
+        "F10",
+        "F12",
+        "F13",
+        "F14"
+      ],
+      "missing_required_families": [
+        "F6"
+      ],
+      "n_findings_observed": 10,
+      "n_findings_augmented": 11,
+      "weights": {
+        "C_comp": 0.35,
+        "C_iq": 0.4,
+        "C_rep": 0.25
+      },
+      "step_1_missingness_synthesis": {
+        "synthesized": [
+          "F6"
+        ],
+        "note": "Each absent required family synthesized as Not Assessable (mode=Not Assessable, verified=0, q=0, reproducible=False)."
+      },
+      "step_2_composite_score": {
+        "C_comp": 0.909091,
+        "C_comp_detail": "10/11",
+        "C_iq": 0.754545,
+        "C_rep": 0.636364,
+        "C_rep_detail": "7/11",
+        "G": 0.779091,
+        "G_times_100": 77.9091,
+        "pre_cap_band": "B"
+      },
+      "step_3_hard_cap": {
+        "weakest_critical_ceiling": "E",
+        "pre_cap_band": "B",
+        "claim_level": "E",
+        "formula": "ClaimLevel = band(100·G) ∧ weakest_critical_ceiling = B ∧ E = E"
+      },
+      "claim_level": "E",
+      "findings": [
+        {
+          "family": "F1",
+          "family_name": "Data quality",
+          "required": true,
+          "input_mode": "Edge Local",
+          "verified": true,
+          "normalized_q": 88.0,
+          "reproducible": true,
+          "ceiling": "A",
+          "per_finding_level": "A",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F2",
+          "family_name": "Model performance",
+          "required": true,
+          "input_mode": "Edge Local",
+          "verified": true,
+          "normalized_q": 92.0,
+          "reproducible": true,
+          "ceiling": "A",
+          "per_finding_level": "A",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F4",
+          "family_name": "Reproducibility",
+          "required": true,
+          "input_mode": "Edge Local",
+          "verified": true,
+          "normalized_q": 84.0,
+          "reproducible": true,
+          "ceiling": "A",
+          "per_finding_level": "B",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F5",
+          "family_name": "Fairness",
+          "required": true,
+          "input_mode": "Edge Local",
+          "verified": true,
+          "normalized_q": 86.0,
+          "reproducible": true,
+          "ceiling": "A",
+          "per_finding_level": "A",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F7",
+          "family_name": "Privacy",
+          "required": true,
+          "input_mode": "Edge Local",
+          "verified": true,
+          "normalized_q": 90.0,
+          "reproducible": true,
+          "ceiling": "A",
+          "per_finding_level": "A",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F8",
+          "family_name": "Lineage",
+          "required": true,
+          "input_mode": "Workspace Asset",
+          "verified": false,
+          "normalized_q": 70.0,
+          "reproducible": false,
+          "ceiling": "C",
+          "per_finding_level": "C",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F10",
+          "family_name": "Security",
+          "required": true,
+          "input_mode": "Synthetic Fixture",
+          "verified": false,
+          "normalized_q": 100.0,
+          "reproducible": false,
+          "ceiling": "C",
+          "per_finding_level": "C",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F12",
+          "family_name": "Policy decision",
+          "required": true,
+          "input_mode": "Workspace Asset",
+          "verified": false,
+          "normalized_q": 65.0,
+          "reproducible": false,
+          "ceiling": "C",
+          "per_finding_level": "C",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F13",
+          "family_name": "Platform observability",
+          "required": true,
+          "input_mode": "Edge Local",
+          "verified": true,
+          "normalized_q": 80.0,
+          "reproducible": true,
+          "ceiling": "A",
+          "per_finding_level": "B",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F14",
+          "family_name": "Export integrity",
+          "required": true,
+          "input_mode": "Edge Local",
+          "verified": true,
+          "normalized_q": 95.0,
+          "reproducible": true,
+          "ceiling": "A",
+          "per_finding_level": "A",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F6",
+          "family_name": "Explainability",
+          "required": true,
+          "input_mode": "Not Assessable",
+          "verified": false,
+          "normalized_q": 0.0,
+          "reproducible": false,
+          "ceiling": "E",
+          "per_finding_level": "E",
+          "is_missing_synthetic": true,
+          "limitation": "Required evidence family F6 absent; no governance claim supported for this family."
+        }
+      ],
+      "limitation_set": [
+        "Required evidence family F6 absent; no governance claim supported for this family."
+      ]
+    },
+    {
+      "profile_id": "worked_example_11_2_vendor_C9",
+      "context": "C9",
+      "context_name": "Vendor and supplier AI",
+      "required_families": [
+        "F8",
+        "F10",
+        "F12",
+        "F14"
+      ],
+      "observed_families": [
+        "F8",
+        "F10",
+        "F12",
+        "F14"
+      ],
+      "missing_required_families": [],
+      "n_findings_observed": 4,
+      "n_findings_augmented": 4,
+      "weights": {
+        "C_comp": 0.35,
+        "C_iq": 0.4,
+        "C_rep": 0.25
+      },
+      "step_1_missingness_synthesis": {
+        "synthesized": [],
+        "note": "Each absent required family synthesized as Not Assessable (mode=Not Assessable, verified=0, q=0, reproducible=False)."
+      },
+      "step_2_composite_score": {
+        "C_comp": 1.0,
+        "C_comp_detail": "4/4",
+        "C_iq": 0.3,
+        "C_rep": 0.0,
+        "C_rep_detail": "0/4",
+        "G": 0.47,
+        "G_times_100": 47.0,
+        "pre_cap_band": "D"
+      },
+      "step_3_hard_cap": {
+        "weakest_critical_ceiling": "D",
+        "pre_cap_band": "D",
+        "claim_level": "D",
+        "formula": "ClaimLevel = band(100·G) ∧ weakest_critical_ceiling = D ∧ D = D"
+      },
+      "claim_level": "D",
+      "findings": [
+        {
+          "family": "F8",
+          "family_name": "Lineage",
+          "required": true,
+          "input_mode": "Declared Supplier Evidence",
+          "verified": false,
+          "normalized_q": 95.0,
+          "reproducible": false,
+          "ceiling": "D",
+          "per_finding_level": "D",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F10",
+          "family_name": "Security",
+          "required": true,
+          "input_mode": "Declared Supplier Evidence",
+          "verified": false,
+          "normalized_q": 92.0,
+          "reproducible": false,
+          "ceiling": "D",
+          "per_finding_level": "D",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F12",
+          "family_name": "Policy decision",
+          "required": true,
+          "input_mode": "Declared Supplier Evidence",
+          "verified": false,
+          "normalized_q": 90.0,
+          "reproducible": false,
+          "ceiling": "D",
+          "per_finding_level": "D",
+          "is_missing_synthetic": false,
+          "limitation": null
+        },
+        {
+          "family": "F14",
+          "family_name": "Export integrity",
+          "required": true,
+          "input_mode": "Declared Supplier Evidence",
+          "verified": false,
+          "normalized_q": 98.0,
+          "reproducible": false,
+          "ceiling": "D",
+          "per_finding_level": "D",
+          "is_missing_synthetic": false,
+          "limitation": null
+        }
+      ],
+      "limitation_set": []
+    }
+  ]
+}

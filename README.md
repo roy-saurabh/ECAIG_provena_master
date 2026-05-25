@@ -2,6 +2,10 @@
 
 Anonymous computational companion for a FAccT-targeted manuscript on context-conditioned evidence sufficiency in AI governance auditing.
 
+> **Reviewer note.** During double-blind review, please use the anonymous mirror linked in the manuscript. The de-anonymized repository will be linked after acceptance.
+>
+> **Scope note.** The computational studies test internal soundness and implementation fidelity under synthetic audit profiles. They do not establish practitioner calibration of the necessity matrix, band thresholds, input-mode quality scores, or evidence-family taxonomy.
+
 ---
 
 ## What Provena is
@@ -51,6 +55,9 @@ python -m pip install -r requirements.txt
 
 # Run all studies (both generators), write validation_results.json
 python provena_validation.py --all --deterministic-timestamp --out validation_results.json
+
+# Reproduce the Section 11 worked examples, write sample_audit_report.json
+python sample_audit.py
 
 # Run tests
 python -m pytest
