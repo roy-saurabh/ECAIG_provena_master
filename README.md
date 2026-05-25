@@ -89,7 +89,7 @@ python provena_validation.py --all --print-summary --out validation_results.json
 | `validation_results.json` | All study results, framework constants, generator assumptions, manuscript tables |
 | `GENERATED_RESULTS_AUDIT.md` | Auto-generated audit comparing generated numbers to manuscript claims |
 | `REPO_READINESS.md` | Honest readiness declaration with per-item checklist |
-| `supplementary_materials.md` | Supplementary Tables S1–S2 and Supplementary Section S3 |
+| `supplementary_materials.md` | Six-section supplementary: S1 formal notation, S2 evidence-family definitions, S3 input-mode quality rubric, S4 normalization templates, S5 artifact schema, S6 repo manifest |
 
 ---
 

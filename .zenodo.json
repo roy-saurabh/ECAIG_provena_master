@@ -1,10 +1,10 @@
 {
   "title": "Provena: Reproducibility Package for Evidence-Laundering Stress Tests in AI Governance Audits",
-  "description": "Computational companion to a FAccT-targeted manuscript on context-conditioned evidence sufficiency in AI governance auditing. Implements the Provena epistemic-ceiling framework in Python and validates it through five computational studies on synthetic audit profiles under two data generators (uniform and context-correlated). Includes all 9 auditing baselines, deterministic seeds, generated validation outputs, manuscript-ready table rows, and a generated results audit report.",
+  "description": "Computational companion to the manuscript 'Preventing Evidence Laundering in AI Governance Audits: A Provenance-Bounded Framework for Context-Conditioned Evidence Sufficiency'. Implements the Provena epistemic-ceiling framework in Python and validates it through five computational studies on synthetic audit profiles under two data generators (uniform and context-correlated). Includes all 9 auditing baselines, deterministic seeds, generated validation outputs (validation_results.json with manuscript_tables block), generated results audit (GENERATED_RESULTS_AUDIT.md), sample worked-example demonstrators, and supplementary materials (six sections: formal notation, evidence-family definitions, input-mode quality rubric, normalization templates, artifact schema, repo manifest).",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "version": "0.1.0-alpha",
+  "version": "0.1.0",
   "keywords": [
     "AI governance",
     "audit",
@@ -14,7 +14,8 @@
     "fairness",
     "accountability",
     "transparency",
-    "FAccT"
+    "policy",
+    "algorithmic auditing"
   ],
   "creators": [
     {

@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
 title: "Provena: Reproducibility Package for Evidence-Laundering Stress Tests in AI Governance Audits"
-version: "0.1.0-alpha"
+version: "0.1.0"
 type: software
 abstract: >
   Computational companion to a manuscript on context-conditioned evidence

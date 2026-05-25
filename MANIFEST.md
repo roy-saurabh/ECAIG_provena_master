@@ -14,6 +14,6 @@ Complete list of files in this companion repository and their purpose.
 | `requirements.txt` | Python dependencies: `numpy`, `scipy`, `pytest`. |
 | `sample_audit.py` | End-to-end demonstrator. Reproduces the two worked examples from manuscript Section 11 (HR resume screening §11.1, supplier-led vendor AI §11.2), runs the full framework computation step by step, and writes `sample_audit_report.json`. Run: `python sample_audit.py`. |
 | `sample_audit_report.json` | Generated output from `sample_audit.py`. Structured JSON audit report for both worked examples, with per-finding detail, intermediate composite-score values, and verification that results match the manuscript. Must not be edited by hand. |
-| `supplementary_materials.md` | Supplementary Tables S1–S2 and Supplementary Section S3. Contains the full context–family necessity matrix (S1), evidence-input mode quality score table (S2), and extended study-design rationale (S3). |
+| `supplementary_materials.md` | Six-section supplementary document. S1: formal notation table. S2: full fifteen-family evidence-family definitions table. S3: input-mode quality rubric (six attributes, 0–3 scale). S4: illustrative normalization templates for eight families. S5: Provena artifact schema (evidence item, finding, limitation, report). S6: companion repository manifest. |
 | `CITATION.cff` | Machine-readable citation metadata. Fill in real author/ORCID/affiliation before de-anonymizing. |
 | `.zenodo.json` | Zenodo release metadata. Fill in real creator entry before making the Zenodo record public. |
