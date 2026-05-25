@@ -19,6 +19,17 @@
 [x] all seeds documented in validation_results.json
 [x] no identifying metadata in generated files
 
+## Output file checksums (SHA-256)
+
+Re-running the script with the pinned seeds reproduces these checksums deterministically.
+
+```
+validation_results.json      e45ee3ecf25e1193c72b5cba84d54752fef89960d29026d7e26f0e84b7c50ad4
+sample_audit_report.json     d2c4ffdfcaec285eeea6cd94afd7ba48024bc6a612558a46fa1fe087258b0652
+```
+
+Verify with: `shasum -a 256 validation_results.json sample_audit_report.json`
+
 ## Notes
 
 - `soft_penalty_only` and `composite_without_cap` are equivalent formulations.

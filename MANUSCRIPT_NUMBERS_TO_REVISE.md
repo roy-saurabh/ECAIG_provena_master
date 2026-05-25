@@ -10,17 +10,17 @@ Status codes: MATCH | MINOR_REVISION | MATERIAL_REVISION | NEW_RESULT
 
 ### Generator: Uniform
 
-**Manuscript claim:** Kendall tau_min >= 0.94 at delta=0.15
-**Manuscript value:** 0.852 (tau_min), 0.943 (tau_mean)
-**Generated value:** 0.911
-**Status:** MATERIAL_REVISION
-**Recommendation:** Update tau_min at delta=0.15 to 0.911. tau_mean at delta=0.15: 0.947.
+**Manuscript claim:** v6 Table 9: tau_min=0.911, tau_mean=0.947 at delta=0.15 (Uniform regime)
+**Manuscript value:** 0.911 (tau_min), 0.947 (tau_mean) — v6 Table 9
+**Generated value:** tau_min=0.911, tau_mean=0.947
+**Status:** MATCH
+**Recommendation:** No revision required. Generated values match v6 manuscript Table 9.
 
 **Manuscript claim:** Final level-change rate <= 0.2% at delta=0.15
 **Manuscript value:** <= 0.2%
 **Generated value:** 0.033%
 **Status:** MATCH
-**Recommendation:** Update level-change rate at delta=0.15 (Uniform) to 0.033%.
+**Recommendation:** No revision required.
 
 - delta=0.05: tau_mean=0.983, tau_min=0.971, rho_mean=0.999, level_change=0.000%
 - delta=0.1: tau_mean=0.965, tau_min=0.941, rho_mean=0.998, level_change=0.033%
@@ -28,17 +28,17 @@ Status codes: MATCH | MINOR_REVISION | MATERIAL_REVISION | NEW_RESULT
 
 ### Generator: Context Correlated
 
-**Manuscript claim:** Kendall tau_min >= 0.94 at delta=0.15
-**Manuscript value:** 0.852 (tau_min), 0.943 (tau_mean)
-**Generated value:** 0.894
-**Status:** MATERIAL_REVISION
-**Recommendation:** Update tau_min at delta=0.15 to 0.894. tau_mean at delta=0.15: 0.934.
+**Manuscript claim:** v6 Table 9: tau_min=0.894, tau_mean=0.934 at delta=0.15 (Context Correlated regime)
+**Manuscript value:** 0.894 (tau_min), 0.934 (tau_mean) — v6 Table 9
+**Generated value:** tau_min=0.894, tau_mean=0.934
+**Status:** MATCH
+**Recommendation:** No revision required. Generated values match v6 manuscript Table 9.
 
 **Manuscript claim:** Final level-change rate <= 0.2% at delta=0.15
 **Manuscript value:** <= 0.2%
 **Generated value:** 0.000%
 **Status:** MATCH
-**Recommendation:** Update level-change rate at delta=0.15 (Context Correlated) to 0.000%.
+**Recommendation:** No revision required.
 
 - delta=0.05: tau_mean=0.979, tau_min=0.964, rho_mean=0.999, level_change=0.000%
 - delta=0.1: tau_mean=0.957, tau_min=0.930, rho_mean=0.997, level_change=0.000%

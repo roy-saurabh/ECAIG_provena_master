@@ -1,0 +1,33 @@
+name: Validation
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run validation script
+        run: python provena_validation.py --all --deterministic-timestamp --out validation_results.json
+
+      - name: Run sample audit
+        run: python sample_audit.py
+
+      - name: Run test suite
+        run: python -m pytest
+
+      - name: Anonymization check
+        run: python scripts/check_anonymization.py
