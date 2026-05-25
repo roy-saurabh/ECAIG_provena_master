@@ -314,6 +314,12 @@ def recommended_families(context: int) -> Set[int]:
     return {f + 1 for f, v in enumerate(row) if v == 1}
 
 
+def applicable_families(context: int) -> Set[int]:
+    """Families with R(c,f) > 0 (recommended OR required)."""
+    row = NECESSITY[context - 1]
+    return {f + 1 for f, v in enumerate(row) if v > 0}
+
+
 def meet(l1: str, l2: str) -> str:
     """Greatest lower bound (weaker of two levels)."""
     return l1 if LEVEL_INT[l1] <= LEVEL_INT[l2] else l2
@@ -1095,6 +1101,52 @@ def run_study3_laundering(
 # ---------------------------------------------------------------------------
 
 
+def _ablation_no_context_matrix_keep_missingness(
+    profile: AuditProfile,
+    weights: Tuple[float, float, float] = DEFAULT_WEIGHTS,
+) -> str:
+    """Replace R(c,f)=2 with applicable-families relation R(c,f)>0; keep missingness rule.
+
+    Missingness synthesis and ceiling enforcement use applicable_families (R>0) instead of
+    required_families (R=2). The context-specific necessity weighting of C_comp is also
+    replaced by applicable_families. This is the 'weak' context-matrix ablation: we drop
+    the distinction between recommended and required but keep the anti-laundering mechanism.
+    """
+    applic = applicable_families(profile.context)
+    if not applic:
+        # Degenerate: treat as full framework
+        return compute_claim_level_full(profile, weights)
+
+    observed_families = {f.family for f in profile.findings if not f.is_missing_synthetic}
+    augmented = list(profile.findings)
+    for fam in sorted(applic):
+        if fam not in observed_families:
+            augmented.append(Finding(
+                family=fam,
+                mode="Not Assessable",
+                verified=0,
+                q=0.0,
+                reproducible=False,
+                is_missing_synthetic=True,
+                limitation=f"F{fam} absent (applicable-families ablation)",
+            ))
+
+    w_comp, w_iq, w_rep = weights
+    c_comp = len(observed_families & applic) / len(applic)
+    c_iq = sum(input_quality_score(f.mode, f.verified) for f in augmented) / len(augmented)
+    c_rep = sum(1 for f in augmented if f.reproducible) / len(augmented)
+    g = w_comp * c_comp + w_iq * c_iq + w_rep * c_rep
+    pre_cap = band(100.0 * g)
+
+    critical = [f for f in augmented if f.family in applic]
+    wcc = min(
+        (ceiling(f.mode, f.verified) if not f.is_missing_synthetic else "E"
+         for f in critical),
+        key=lambda lv: LEVEL_INT[lv],
+    )
+    return meet(pre_cap, wcc)
+
+
 def _ablation_no_context_matrix(
     profile: AuditProfile,
     weights: Tuple[float, float, float] = DEFAULT_WEIGHTS,
@@ -1185,6 +1237,10 @@ def _ablation_no_missingness(
 
 
 ABLATION_LABELS: List[Tuple[str, str]] = [
+    (
+        "no_context_matrix_keep_missingness",
+        "Replace R=2 with R>0 (applicable-families); keep missingness synthesis",
+    ),
     ("no_context_matrix", "Ignore necessity matrix; no missingness synthesis"),
     ("no_input_mode_ceiling", "Set all non-NA ceilings to A; NA remains E"),
     ("no_reproducibility_term", "Remove C_rep; renormalise weights"),
@@ -1200,7 +1256,9 @@ def _run_single_ablation(
 ) -> Dict:
     ablation_levels: List[str] = []
     for p in profiles:
-        if ablation_name == "no_context_matrix":
+        if ablation_name == "no_context_matrix_keep_missingness":
+            lv = _ablation_no_context_matrix_keep_missingness(p)
+        elif ablation_name == "no_context_matrix":
             lv = _ablation_no_context_matrix(p)
         elif ablation_name == "no_input_mode_ceiling":
             lv = _ablation_no_ceiling(p)

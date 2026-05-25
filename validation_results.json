@@ -738,6 +738,31 @@
       "study_4_ablation": {
         "n_profiles": 500,
         "ablations": {
+          "no_context_matrix_keep_missingness": {
+            "description": "Replace R=2 with R>0 (applicable-families); keep missingness synthesis",
+            "level_distribution_ablated": {
+              "A": 0,
+              "B": 0,
+              "C": 2,
+              "D": 18,
+              "E": 480
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 34,
+              "D": 69,
+              "E": 397
+            },
+            "disagreement_rate": 0.17,
+            "promotions": 0,
+            "demotions": 85,
+            "unchanged": 415,
+            "promotion_to_A": 0,
+            "promotion_to_A_or_B": 0,
+            "mean_overstatement_magnitude": 0.0,
+            "max_overstatement_magnitude": 0
+          },
           "no_context_matrix": {
             "description": "Ignore necessity matrix; no missingness synthesis",
             "level_distribution_ablated": {
@@ -1235,6 +1260,31 @@
       "study_4_ablation": {
         "n_profiles": 500,
         "ablations": {
+          "no_context_matrix_keep_missingness": {
+            "description": "Replace R=2 with R>0 (applicable-families); keep missingness synthesis",
+            "level_distribution_ablated": {
+              "A": 0,
+              "B": 0,
+              "C": 0,
+              "D": 6,
+              "E": 494
+            },
+            "level_distribution_full": {
+              "A": 0,
+              "B": 0,
+              "C": 15,
+              "D": 35,
+              "E": 450
+            },
+            "disagreement_rate": 0.088,
+            "promotions": 0,
+            "demotions": 44,
+            "unchanged": 456,
+            "promotion_to_A": 0,
+            "promotion_to_A_or_B": 0,
+            "mean_overstatement_magnitude": 0.0,
+            "max_overstatement_magnitude": 0
+          },
           "no_context_matrix": {
             "description": "Ignore necessity matrix; no missingness synthesis",
             "level_distribution_ablated": {
@@ -1793,6 +1843,14 @@
     "recommended_table_ablation": {
       "uniform": [
         {
+          "ablation": "no_context_matrix_keep_missingness",
+          "disagreement_rate": 0.17,
+          "promotions": 0,
+          "demotions": 85,
+          "promotion_to_A": 0,
+          "mean_overstatement": 0.0
+        },
+        {
           "ablation": "no_context_matrix",
           "disagreement_rate": 0.806,
           "promotions": 397,
@@ -1834,6 +1892,14 @@
         }
       ],
       "context_correlated": [
+        {
+          "ablation": "no_context_matrix_keep_missingness",
+          "disagreement_rate": 0.088,
+          "promotions": 0,
+          "demotions": 44,
+          "promotion_to_A": 0,
+          "mean_overstatement": 0.0
+        },
         {
           "ablation": "no_context_matrix",
           "disagreement_rate": 0.9,
