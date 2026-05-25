@@ -22,6 +22,7 @@ BANNED_TOKENS: list[str] = [
     # Author-identifying names and handles
     "royz.saurabh",
     "github.com/royz",
+    "Roy Saurabh",
     "Saurabh",
     "roy-saurabh",
     "github.com/roy-saurabh",
