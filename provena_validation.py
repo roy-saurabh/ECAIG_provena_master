@@ -1582,13 +1582,13 @@ def generate_manuscript_audit(results: Dict) -> str:
         lines.append("")
         row(
             claim=(
-                f"v6 Table 9: tau_min={tau_min_ms}, tau_mean={tau_mean_ms} "
+                f"v7 Table 9: tau_min={tau_min_ms}, tau_mean={tau_mean_ms} "
                 f"at delta=0.15 ({label} regime)"
             ),
             generated=f"tau_min={tau_min_ms}, tau_mean={tau_mean_ms}",
-            manuscript_val=f"{tau_min_ms} (tau_min), {tau_mean_ms} (tau_mean) — v6 Table 9",
+            manuscript_val=f"{tau_min_ms} (tau_min), {tau_mean_ms} (tau_mean) — v7 Table 9",
             status=status_tau,
-            recommendation="No revision required. Generated values match v6 manuscript Table 9.",
+            recommendation="No revision required. Generated values match v7 manuscript Table 9.",
         )
         row(
             claim="Final level-change rate <= 0.2% at delta=0.15",

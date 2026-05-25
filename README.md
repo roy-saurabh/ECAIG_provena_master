@@ -114,7 +114,7 @@ Weight perturbation (δ ∈ {0.05, 0.10, 0.15}, 12 perturbations per δ, seed 7)
 300 profiles (seed 29) where all required families are present with q=100 and modes drawn only from Synthetic Fixture or Declared Supplier Evidence. Compares all 9 variants. The central headline: metric-only should promote all to A; the full framework caps at C or D.
 
 ### Study 4: Ablation
-Five ablations on the 500 main-generator profiles: (A) no context matrix, (B) no input-mode ceiling (Not Assessable remains E), (C) no reproducibility term, (D) no hard cap on composite, (E) no missingness synthesis. Reports disagreement rate, promotions, demotions, and overstatement magnitude.
+Six ablation/variant checks on the 500 main-generator profiles: (A) broaden missingness to all applicable families (R>0) — conservative, produces demotions only; (B) no context matrix and no missingness; (C) no input-mode ceiling; (D) no reproducibility term; (E) no hard cap on composite; (F) no missingness synthesis with R kept. Reports disagreement rate, promotions, demotions, and overstatement magnitude.
 
 ### Study 5: Hard cap vs soft penalty vs metric-only (Tier 3 addition)
 500 laundering-prone profiles (seed 43): all required families present, q ~ Normal(90, 8) clipped [70, 100], 80–90% weak-provenance modes (Synthetic Fixture, Declared Supplier Evidence, Workspace Asset, External Provider unverified), 10–20% strong modes (Edge Local, Uploaded Sample). Compares all 9 variants. The key question: does soft_penalty_only (full G, no hard cap) still over-promote relative to the full framework?

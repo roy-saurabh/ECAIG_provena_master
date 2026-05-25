@@ -1,4 +1,4 @@
-name: Validation
+name: Reproduce Provena Results
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: ["**"]
 
 jobs:
-  validate:
+  reproduce:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
