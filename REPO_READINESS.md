@@ -21,7 +21,9 @@
 
 ## Output file checksums (SHA-256)
 
-Re-running the script with the pinned seeds reproduces these checksums deterministically.
+Re-running the script with the pinned seeds reproduces the scientific result values deterministically.
+Byte-level checksums may differ across Python/NumPy environments because environment metadata
+(python_version, numpy_version, generated_at_utc) is serialized into the JSON.
 
 ```
 validation_results.json      e45ee3ecf25e1193c72b5cba84d54752fef89960d29026d7e26f0e84b7c50ad4

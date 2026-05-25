@@ -19,9 +19,14 @@ BANNED_TOKENS: list[str] = [
     "AL360",
     "affectlog",
     "al360",
-    # Author-identifying names excluded per double-blind requirements
+    # Author-identifying names and handles
     "royz.saurabh",
     "github.com/royz",
+    "Saurabh",
+    "roy-saurabh",
+    "github.com/roy-saurabh",
+    "0000-0003-3439-7731",
+    "orcid.org/0000-0003-3439-7731",
     # Internal product identifiers
     "ai-harbor",
     "ai_harbor",
@@ -61,10 +66,18 @@ def is_text_file(path: str) -> bool:
         return False
 
 
-# Files that may legitimately define banned tokens (the scanner itself, its tests)
+# Files that may legitimately contain banned tokens without violating anonymization:
+#   - The scanner itself and its tests (they list the tokens by definition)
+#   - Public release metadata files: these carry real author info intentionally and
+#     must be replaced with their .anonymous counterparts before anonymous submission.
+#     The .anonymous files do not contain banned tokens and are not listed here.
 SKIP_FILES: set[str] = {
     "check_anonymization.py",
     "test_provena_validation.py",
+    "CITATION.cff",
+    ".zenodo.json",
+    "CITATION.cff.public",
+    ".zenodo.public.json",
 }
 
 

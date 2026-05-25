@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Provena: Reproducibility Package for Evidence-Laundering Stress Tests in AI Governance Audits"
+version: "0.1.0-alpha"
+type: software
+abstract: >
+  Computational companion to a manuscript on context-conditioned evidence
+  sufficiency in AI governance auditing. Implements the Provena epistemic-ceiling
+  framework in Python and validates it through five computational studies on
+  synthetic audit profiles under two data generators.
+license: MIT
+repository-code: "https://anonymous.4open.science/r/ECAIG_provena_master-E5B8"
+url: "https://anonymous.4open.science/r/ECAIG_provena_master-E5B8"
+keywords:
+  - AI governance
+  - audit
+  - reproducibility
+  - evidence sufficiency
+  - epistemic ceiling
+  - fairness
+  - accountability
+  - transparency
+  - responsible AI
+  - algorithmic auditing
+  - AI compliance
+authors:
+  - name: "Anonymous Author(s)"
+date-released: "2026-05-25"
