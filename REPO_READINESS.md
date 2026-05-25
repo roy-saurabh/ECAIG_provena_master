@@ -10,7 +10,7 @@
 [x] Studies 1-5 implemented for both generators
 [x] all 9 baselines implemented
 [x] sensitivity decomposition reports G, band, ClaimLevel separately
-[x] MANUSCRIPT_NUMBERS_TO_REVISE.md generated
+[x] GENERATED_RESULTS_AUDIT.md generated
 [x] all invariant tests pass
 [x] anonymization check passes (run: python scripts/check_anonymization.py)
 [x] pytest passes (run: python -m pytest)
@@ -35,6 +35,29 @@ Verify with: `shasum -a 256 validation_results.json sample_audit_report.json`
 - `soft_penalty_only` and `composite_without_cap` are equivalent formulations.
 - Run `python scripts/check_anonymization.py` to verify double-blind safety.
 - Run `python -m pytest` to verify all unit tests pass.
+
+## Zenodo release checklist
+
+For the `v0.1.0-alpha` Zenodo release, complete the following steps after journal/FAccT acceptance:
+
+1. Fill in `CITATION.cff` and `.zenodo.json` with real author name, ORCID, and affiliation.
+2. Run the full validation suite one final time:
+   ```bash
+   python -m pip install -r requirements.txt
+   python provena_validation.py --all --deterministic-timestamp --out validation_results.json
+   python sample_audit.py
+   python -m pytest
+   python scripts/check_anonymization.py
+   shasum -a 256 validation_results.json sample_audit_report.json
+   ```
+3. Tag the release:
+   ```bash
+   git tag -a v0.1.0-alpha -m "Reproducibility package for Provena evidence-laundering stress tests"
+   git push origin v0.1.0-alpha
+   ```
+4. Create a GitHub release from the tag. Zenodo will archive it and mint a DOI automatically (requires Zenodo–GitHub integration enabled at zenodo.org/account/settings/github).
+
+> **Double-blind warning.** Do not make the Zenodo record public before the review outcome is known. The Zenodo metadata (creator, ORCID, affiliation) is visible to anyone who opens the record.
 
 ## Manuscript language recommendation
 
